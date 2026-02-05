@@ -1,103 +1,108 @@
-# 🎓 Edu - Educador Financeiro Inteligente
+# 🕵️‍♂️ Lupa - O Detetive Financeiro
 
-> Agente de IA Generativa que ensina conceitos de finanças pessoais de forma simples e personalizada, usando os próprios dados do cliente como exemplos práticos.
+> Agente de IA Generativa que atua como um auditor de finanças pessoais. Ele analisa históricos de transações, encontra padrões de gastos ocultos ("vazamentos") e alerta o usuário antes que o orçamento estoure.
 
-## 💡 O Que é o Edu?
+## 💡 O Que é o Lupa?
 
-O Edu é um educador financeiro que **ensina**, não recomenda. Ele explica conceitos como reserva de emergência, tipos de investimentos e análise de gastos usando uma abordagem didática e exemplos concretos baseados no perfil do cliente.
+Diferente de assistentes genéricos que apenas respondem dúvidas, o Lupa é um **investigador ativo**. Ele cruza os dados do seu extrato bancário com o seu perfil financeiro para encontrar onde o dinheiro está sendo desperdiçado.
 
-**O que o Edu faz:**
-- ✅ Explica conceitos financeiros de forma simples
-- ✅ Usa dados do cliente como exemplos práticos
-- ✅ Responde dúvidas sobre produtos financeiros
-- ✅ Analisa padrões de gastos de forma educativa
+**O que o Lupa faz:**
+- ✅ **Auditoria:** Lê arquivos CSV e categoriza gastos automaticamente.
+- ✅ **Detecção:** Identifica padrões de consumo excessivo (ex: "Você gastou 30% em delivery").
+- ✅ **Proatividade:** Alerta sobre riscos ao orçamento baseando-se em dados reais.
+- ✅ **Privacidade:** Roda 100% localmente, sem enviar dados bancários para a nuvem.
 
-**O que o Edu NÃO faz:**
-- ❌ Não recomenda investimentos específicos
-- ❌ Não acessa dados bancários sensíveis
-- ❌ Não substitui um profissional certificado
+**O que o Lupa NÃO faz:**
+- ❌ Não executa transferências ou pagamentos.
+- ❌ Não inventa transações (usa *Grounding* estrito no CSV).
+- ❌ Não dá recomendações de investimento de alto risco (foca em organização).
 
 ## 🏗️ Arquitetura
 
 ```mermaid
 flowchart TD
-    A[Usuário] --> B[Streamlit]
+    A[Usuário] --> B[Streamlit Interface]
     B --> C[Ollama - LLM Local]
-    C --> D[Base de Conhecimento]
-    D --> C
-    C --> E[Resposta Educativa]
+    D[Base de Conhecimento] -->|Lê CSV/JSON| C
+    C -->|Gera Análise| E[Resposta do Detetive]
+    E --> A
 ```
 
-**Stack:**
-- Interface: Streamlit
-- LLM: Ollama (modelo local `gpt-oss`)
-- Dados: JSON/CSV mockados
+**Stack Tecnológico:**
+- **Interface:** Streamlit (Python)
+- **Cérebro (LLM):** Ollama (Modelo `llama3`)
+- **Manipulação de Dados:** Pandas (Para cálculos matemáticos precisos)
+- **Dados:** Arquivos CSV e JSON locais
 
 ## 📁 Estrutura do Projeto
 
 ```
-├── data/                          # Base de conhecimento
-│   ├── perfil_investidor.json     # Perfil do cliente
-│   ├── transacoes.csv             # Histórico financeiro
-│   ├── historico_atendimento.csv  # Interações anteriores
-│   └── produtos_financeiros.json  # Produtos para ensino
+├── data/                          # A "Cena do Crime" (Dados)
+│   ├── perfil_investidor.json     # Quem é o usuário
+│   ├── transacoes.csv             # O rastro do dinheiro (Extrato)
+│   ├── historico_atendimento.csv  # Memória de conversas
+│   └── produtos_financeiros.json  # Soluções de investimento
 │
-├── docs/                          # Documentação completa
-│   ├── 01-documentacao-agente.md  # Caso de uso e persona
-│   ├── 02-base-conhecimento.md    # Estratégia de dados
-│   ├── 03-prompts.md              # System prompt e exemplos
-│   ├── 04-metricas.md             # Avaliação de qualidade
-│   └── 05-pitch.md                # Apresentação do projeto
+├── docs/                          # Documentação do Projeto
+│   ├── 01-documentacao-agente.md  # Definição da Persona
+│   ├── 02-base-conhecimento.md    # Estratégia RAG
+│   ├── 03-prompts.md              # Engenharia de Prompt (System)
+│   ├── 04-metricas.md             # Testes de Assertividade
+│   └── 05-pitch.md                # Roteiro do Vídeo
 │
 └── src/
-    └── app.py                     # Aplicação Streamlit
+    └── app.py                     # O Código do Agente (Streamlit)
 ```
 
 ## 🚀 Como Executar
 
-### 1. Instalar Ollama
+### 1. Preparar o Cérebro (Ollama)
+
+Certifique-se de ter o [Ollama](https://ollama.com) instalado.
 
 ```bash
-# Baixar em: ollama.com
-ollama pull gpt-oss
+# Baixar o modelo Llama 3 (usado neste projeto)
+ollama pull llama3
+
+# Iniciar o servidor (se não estiver rodando)
 ollama serve
 ```
 
-### 2. Instalar Dependências
+### 2. Instalar Ferramentas
 
 ```bash
 pip install streamlit pandas requests
 ```
 
-### 3. Rodar o Edu
+### 3. Iniciar a Investigação
 
 ```bash
 streamlit run src/app.py
 ```
 
-## 🎯 Exemplo de Uso
+## 🎯 Exemplos de Uso
 
-**Pergunta:** "O que é CDI?"  
-**Edu:** "CDI é uma taxa de referência usada pelos bancos. Quando um investimento rende '100% do CDI', significa que ele acompanha essa taxa. Hoje o CDI está próximo da Selic. Quer que eu explique a diferença entre os dois?"
+**Usuário:** "Para onde foi meu dinheiro em outubro?"
+**Lupa:** "Analisei as evidências. 🕵️‍♂️ Você gastou **R$ 1.380,00 em Moradia** e **R$ 570,00 em Alimentação**. Atenção: seus gastos com Lazer representam apenas 1% do total, o que é muito baixo para um perfil equilibrado."
 
-**Pergunta:** "Onde estou gastando mais?"  
-**Edu:** "Olhando suas transações de outubro, sua maior despesa é moradia (R$ 1.380), seguida de alimentação (R$ 570). Juntas, representam quase 80% dos seus gastos. Isso é bem comum! Quer que eu explique algumas estratégias de organização?"
+**Usuário:** "Sobrou dinheiro?"
+**Lupa:** "Investigação concluída. Considerando sua renda de R$ 5.000,00 e despesas de R$ 2.488,90, temos um saldo positivo. Recomendo alocar esse excedente na sua **Reserva de Emergência** (Tesouro Selic), conforme seu objetivo principal."
 
-## 📊 Métricas de Avaliação
+## 📊 Métricas de Qualidade
 
-| Métrica | Objetivo |
-|---------|----------|
-| **Assertividade** | O agente responde o que foi perguntado? |
-| **Segurança** | Evita inventar informações (anti-alucinação)? |
-| **Coerência** | A resposta é adequada ao perfil do cliente? |
+| Métrica | Objetivo no Lupa |
+|---------|------------------|
+| **Precisão Matemática** | O total de gastos informado bate 100% com a soma do Excel? (Garantido via Pandas) |
+| **Anti-Alucinação** | O agente se recusa a inventar gastos que não estão no CSV? |
+| **Persona** | O tom de voz se mantém analítico e investigativo ("Detetive")? |
 
 ## 🎬 Diferenciais
 
-- **Personalização:** Usa os dados do próprio cliente nos exemplos
-- **100% Local:** Roda com Ollama, sem enviar dados para APIs externas
-- **Educativo:** Foco em ensinar, não em vender produtos
-- **Seguro:** Estratégias de anti-alucinação documentadas
+- **Análise Real:** Não é apenas um chat, é um analista de dados que "fala".
+- **Privacidade Total:** Como usa LLM Local, seus dados financeiros nunca saem do seu computador.
+- **Cálculo Híbrido:** Usa Python para somas (exatidão) e LLM para explicação (didática).
 
-## 📝 Documentação Completa
+## 📝 Créditos
 
-Toda a documentação técnica, estratégias de prompt e casos de teste estão disponíveis na pasta [`docs/`](./docs/).
+Desenvolvido por **Samuel Maggi** durante o **Bootcamp GenIa & Dados (DIO + Bradesco)**.
+Documentação completa disponível na pasta [`docs/`](./docs/).
