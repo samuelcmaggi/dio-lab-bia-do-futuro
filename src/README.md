@@ -4,16 +4,16 @@
 
 ```bash
 # 1. Instalar Ollama (ollama.com)
-# 2. Baixar um modelo leve
-ollama pull gpt-oss
+# 2. Baixar o modelo Llama 3 (usado no projeto)
+ollama pull llama3
 
 # 3. Testar se funciona
-ollama run gpt-oss "Olá!"
+ollama run llama3 "Olá, detetive!"
 ```
 
 ## Código Completo
 
-Todo o código-fonte está no arquivo `app.py`.
+Todo o código-fonte está no arquivo `src/app.py`.
 
 ## Como Rodar
 
@@ -25,9 +25,6 @@ pip install streamlit pandas requests
 ollama serve
 
 # 3. Rodar o app
-streamlit run .\src\app.py
+streamlit run src/app.py
 ```
 
-## Evidência de Execução
-
-<img width="1920" height="1107" alt="image" src="https://github.com/user-attachments/assets/60feed79-38a6-43dc-b23a-9dd007e34c1d" />
