@@ -6,7 +6,7 @@ import streamlit as st
 # ============ CONFIGURAÇÃO ============
 # Certifique-se de que o Ollama está rodando (ollama serve)
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODELO = "gpt-oss" 
+MODELO = "llama3" 
 
 # ============ CARREGAR DADOS ============
 perfil = json.load(open('./data/perfil_investidor.json'))
