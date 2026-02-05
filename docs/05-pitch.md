@@ -8,37 +8,45 @@
 | Tempo | Seção | O que falar |
 |-------|-------|-------------|
 | 0:00 - 0:30 | Problema | A dor que você resolve |
-| 0:30 - 1:30 | Solução | Como o Edu resolve |
+| 0:30 - 1:30 | Solução | Como o Lupa resolve |
 | 1:30 - 2:30 | Demo | Mostre funcionando |
 | 2:30 - 3:00 | Diferencial | Por que é inovador |
 
 ---
- 
-## Roteiro do Edu
+
+## Roteiro do Lupa
 
 ### 🎯 Problema (30 seg)
-> "62% dos brasileiros não sabem o que é reserva de emergência. Muita gente quer aprender sobre finanças, mas não sabe por onde começar — e tem medo de parecer burro perguntando."
+> "Sabe aquela sensação de que o mês ainda não acabou, mas o salário já sumiu? Isso se chama 'Cegueira Financeira'.
+> Milhões de brasileiros trabalham muito, mas não conseguem guardar dinheiro porque perdem o controle nos pequenos gastos invisíveis: o delivery de todo dia, o transporte por app, aquela assinatura que você nem lembra que paga."
 
 ### 💡 Solução (60 seg)
-> "O Edu é um educador financeiro que ensina de forma personalizada. Ele usa seus próprios dados para dar exemplos práticos. Não recomenda investimentos — só educa. É como ter um professor particular de finanças disponível 24h."
+> "Para resolver isso, criei o **Lupa**: o seu Detetive Financeiro Pessoal.
+> O Lupa não é um professor chato que fica te dando aula de economia. Ele é um auditor inteligente. Ele conecta no seu histórico de transações, investiga cada centavo gasto e te entrega um relatório de inteligência.
+> Ele aponta exatamente quem são os 'culpados' pelo seu dinheiro sumir, usando seus próprios dados contra o desperdício."
 
 ### 📱 Demo (60 seg)
-> [Compartilhe a tela e faça 2-3 perguntas ao Edu]
-> - "O que é CDI?"
-> - "Onde estou gastando mais?"
-> - "Me explica o que é Tesouro Selic"
+> [Compartilhe a tela e faça 2-3 perguntas ao Lupa]
+> - **Pergunta 1:** "Lupa, inicie a investigação. Para onde meu dinheiro foi em Outubro?"
+>   - *(Mostre ele listando Moradia e Alimentação)*
+> - **Pergunta 2:** "Encontrou algum padrão suspeito?"
+>   - *(Mostre ele alertando sobre o excesso de gastos em Delivery/Restaurante)*
+> - **Pergunta 3:** "Sobrou dinheiro para investir?"
+>   - *(Mostre ele consultando o perfil e sugerindo Tesouro Selic)*
 
 ### ✨ Diferencial (30 seg)
-> "Diferente de chatbots genéricos, o Edu usa SEUS dados como exemplo. Isso torna o aprendizado concreto. E o melhor: roda 100% local, sem custo e sem enviar seus dados pra ninguém."
+> "O grande diferencial do Lupa é a Privacidade e a Proatividade.
+> Primeiro: ele roda com LLM Local (Ollama), ou seja, seus dados bancários nunca saem do seu computador.
+> Segundo: ele não espera você perguntar. Ele cruza seu perfil com seus gastos e te avisa do problema antes que você entre no vermelho."
 
 ---
 
 ## Checklist do Pitch
 
 - [ ] Duração máxima de 3 minutos
-- [ ] Problema claramente definido
-- [ ] Solução demonstrada na prática
-- [ ] Diferencial explicado
+- [ ] Problema claramente definido (Dinheiro sumindo)
+- [ ] Solução demonstrada na prática (Lupa analisando CSV)
+- [ ] Diferencial explicado (Privacidade Local)
 - [ ] Áudio e vídeo com boa qualidade
 
 ---
